@@ -4,15 +4,8 @@ var express = require('express'),
 	server = require('http').Server(app),
 	io = require('socket.io')(server),
 	port = 3000;
-	
 
-server.listen(port, '127.0.0.1', function(){
-	var addr = server.address();
-	logger.level = 'debug';
-    logger.debug('listening on '+addr.address+':' + addr.port);
-}),
-
-app.use(express.static(__dirname + '/page'))
+app.use(express.static(__dirname + '/page'));
 
 app.get('/', function(req,res){
     res.sendFile(__dirname+'/page/index.html');
@@ -21,6 +14,13 @@ app.get('/', function(req,res){
 app.get('/link', function(req,res){
     res.sendFile(__dirname+'/link.html');
 });
+
+server.listen(port, '127.0.0.1', function(){
+	var addr = server.address();
+	logger.level = 'debug';
+    logger.debug('listening on '+addr.address+':' + addr.port);
+});
+
 /* app.get('/', function(req, res){
 	res.sendFile(__dirname + '/link.html')
 })
