@@ -1,0 +1,21 @@
+body{margin: 0;padding: 0;height: 100%;}
+.no-content{display: none;}
+
+/* HEADER */
+header{
+	background-color: #845ac7;
+	margin-bottom: 10px;
+}
+.header-title{
+	color: #fff;
+	text-align: center;
+}
+
+/* CONTENT */
+main, .content, .chat-wrapp{
+	height: 100%;
+}
+.m-window{
+	height: 100%;
+	background-color: #ece6f7;
+}
