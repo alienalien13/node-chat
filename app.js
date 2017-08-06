@@ -46,10 +46,17 @@ io.on('connection', (socket)=>{
 	app.get('/', (req,res)=>{
 		res.render('pages/index', {
 			title: 'main page',
-			message: "Your's id is: " + socket.id,
+			message: amazingStuff + 'bro',
 			showChat: false
 		});
 	});
+	 app.get('/:username', function(req,res){
+		res.render('pages/index', {
+			title: 'Hello, ' + req.params.username,
+			message: amazingStuff + req.params.username,
+			showChat: true
+		});
+	}); 
 
 	socket.on('newUserJoin', (userName)=>{
 	
