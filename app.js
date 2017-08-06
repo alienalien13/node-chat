@@ -1,7 +1,7 @@
 var express = require('express'),
 	app = express(),
 	logger = require('log4js').getLogger(),
-	server = require('http').Server(app),
+	server = require('https').Server(app),
 	io = require('socket.io')(server),
 	pug = require('pug'),
 	port = 4000;

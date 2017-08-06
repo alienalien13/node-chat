@@ -1,6 +1,5 @@
 var socket = io();
 console.log(socket);
-//var socket = io.connect('https://cryptic-fjord-64553.herokuapp.com/')
 
 //new user login handler
 $('#joinChat').on('click', ()=>{
