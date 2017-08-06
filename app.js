@@ -1,8 +1,17 @@
 var express = require('express'),
 	app = express(),
-	logger = require('log4js').getLogger(),
-	server = require('https').Server(app),
-	io = require('socket.io')(server),
+	logger = require('log4js').getLogger();
+	/* server = require('https').Server(app),
+	io = require('socket.io')(server), */
+	app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        res.header("Access-Control-Allow-Headers", "Content-Type");
+        res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+        next();
+    });
+	var server = https.createServer(app),
+	io = socketio.listen(server, {log:false, origins:'*:*'}),
 	pug = require('pug'),
 	port = 4000;
 
