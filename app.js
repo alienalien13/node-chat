@@ -10,7 +10,9 @@ var express = require('express'),
         res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
         next();
     });
-	var server = https.createServer(app),
+	var https = require('https'),
+	socketio = require('socket.io'),
+	server = https.createServer(app),
 	io = socketio.listen(server, {log:false, origins:'*:*'}),
 	pug = require('pug'),
 	port = 4000;
