@@ -6,11 +6,11 @@ var express = require('express'),
 	pug = require('pug'),
 	port = 4000;
 
-server.listen(port, '127.0.0.1', ()=>{
+/* server.listen(port, '127.0.0.1', ()=>{
 	var addr = server.address();
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
-});
+}); */
 
 app.use(express.static(__dirname + '/public'));
 
