@@ -23,15 +23,16 @@ app.get('/jquery.js', (req,res)=>{
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
-const amazingStuff = 'Its amazing stuff, ';
+const amazingStuff = 'Its amazing stuff, ',
+	date = new Date;
 
-/* app.get('/', (req,res)=>{
+app.get('/', (req,res)=>{
     res.render('pages/index', {
 		title: 'main page',
-		message: "Your's ip is: " + io.,
+		message: date,
 		showChat: false
 	});
-}); */
+});
 
 /* app.get('/:username', function(req,res){
 	res.render('pages/index', {
@@ -39,51 +40,41 @@ const amazingStuff = 'Its amazing stuff, ';
 		message: amazingStuff + req.params.username,
 		showChat: true
 	});
-}); */
+});*/
 
 io.on('connection', (socket)=>{
-
-	app.get('/', (req,res)=>{
-		res.render('pages/index', {
-			title: 'main page',
-			message: amazingStuff + 'bro',
-			showChat: false
-		});
-	});
-	 app.get('/:username', function(req,res){
-		res.render('pages/index', {
-			title: 'Hello, ' + req.params.username,
-			message: amazingStuff + req.params.username,
-			showChat: true
-		});
-	}); 
 
 	socket.on('newUserJoin', (userName)=>{
 	
 		//if(userName !== undefined && userName !== ''){
 
-			socket.session = {};
-			socket.session.userName = userName;
-			socket.session.address = socket.handshake.address;
-			socket.session.id = socket.id;
+		socket.session = {};
+		socket.session.userName = userName;
+		socket.session.address = socket.handshake.address;
+		socket.session.id = socket.id;
 
-			socket.broadcast.emit('newUser', socket.session);
-			socket.emit('user', socket.session)
-			socket.emit('userLisr', io.length)
+		socket.broadcast.emit('newUser', socket.session);
+		socket.emit('user', socket.session)
+		socket.emit('userLisr', io.length)
 
-			logger.info('user ' + socket.session.userName + ' / ip ' + socket.session.address)
-			logger.info('user count: ' + io.engine.clientsCount)
-			logger.debug(socket.session)
+		logger.info('user ' + socket.session.userName + ' / ip ' + socket.session.address)
+		logger.info('user count: ' + io.engine.clientsCount)
+		logger.debug(socket.session)
 
-			var clients = io.sockets.connected,
-				clientList = {};
-			
-			for (var i in clients){
-				if(clients[i].session) clientList[i] = clients[i].session;
-			}
-			
-			socket.emit('clientList', clientList);
+		var clients = io.sockets.connected,
+			clientList = {};
+		
+		for (var i in clients){
+			if(clients[i].session) clientList[i] = clients[i].session;
+		}
+		
+		socket.emit('clientList', clientList);
 
+	})
+
+	//get a new message and share it to all users
+	socket.on('newMessage', (message)=>{
+		socket.broadcast.emit('shareMessage', message)
 	})
 
 })

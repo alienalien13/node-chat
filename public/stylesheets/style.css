@@ -25,5 +25,6 @@ header{
 	height: 65%;
 }
 .new-message{
+	min-height: 25px;
 	height: 5%;
 }

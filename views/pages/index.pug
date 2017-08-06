@@ -13,9 +13,7 @@ body
 	header
 		include ../partials/header
 	article(id='main')
-		if showChat
-			include ../partials/chat
-		else
-			include ../partials/hellopage
+		include ../partials/hellopage
+		include ../partials/chat
 
 	script(src='main.js')
