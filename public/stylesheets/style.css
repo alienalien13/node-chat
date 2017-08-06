@@ -12,7 +12,7 @@ header{
 }
 
 /* CONTENT */
-main, .chat, .chat-wrapp, .hellopage{
+#main, .chat, .chat-wrapp, .hellopage{
 	height: 100%;
 }
 .m-window{

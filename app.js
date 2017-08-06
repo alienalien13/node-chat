@@ -15,15 +15,13 @@ server.listen(port, '127.0.0.1', function(){
 app.use(express.static(__dirname + '/public'));
 
 app.get('/socket.io.js', function(req,res){
-    res.sendFile(__dirname+'/node_modules/socket.io-client/dist/socket.io.js');
+    res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
 });
 app.get('/jquery.js', function(req,res){
-    res.sendFile(__dirname+'/node_modules/jquery/dist/jquery.min.js');
+    res.sendFile(__dirname + '/node_modules/jquery/dist/jquery.min.js');
 });
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
-
-//app.engine('pug', require('pug').__express);
 
 const amazingStuff = 'Its amazing stuff, ';
 
@@ -43,28 +41,19 @@ app.get('/', function(req,res){
 });
 
 app.get('/:username', function(req,res){
-		res.render('pages/index', {
-			title: 'Hello, ' + req.params.username,
-			message: amazingStuff + req.params.username,
-			showChat: true
-		});
+	res.render('pages/index', {
+		title: 'Hello, ' + req.params.username,
+		message: amazingStuff + req.params.username,
+		showChat: true
+	});
 });
 
-
-
-
-
-/* 
 io.on('connection', function(socket){
 
-	//var fn = pug.compileFile('views/pages/index.pug');
-	//var html = fn();
+	socket.on('newUserJoin', function(userName){
+	
+		if(userName !== undefined && userName !== ''){
 
-	//io.emit('connection', html)
-
-	function setName(userName){
-		
-		if(name !== undefined && name !== ''){
 			socket.session = {};
 			socket.session.userName = userName;
 			socket.session.address = socket.handshake.address;
@@ -77,15 +66,20 @@ io.on('connection', function(socket){
 			logger.info('user ' + socket.session.userName + '; ip ' + socket.session.address)
 			logger.info('user count: ' + io.engine.clientsCount)
 
+			var clients = io.sockets.connected,
+				clientList = {};
+			
+			for (var i in clients){
+				if(clients[i].session) clientList[i] = clients[i].session;
+			}
+			
 			socket.emit('clientList', clientList);
+			socket.emit('setName', socket.session);
+		} else {
+			socket.emit('setName', 'empty');
+			logger.warn('empty')
+		}
 
-		} else socket.emit('setName');
+	})
+})
 
-	}
-
-	setName(null);
-
-}) */
-
-
-/* start dev server */

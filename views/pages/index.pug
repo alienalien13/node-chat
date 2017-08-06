@@ -5,17 +5,16 @@ head
 	link(rel="stylesheet", href="/stylesheets/equalize.css")
 	link(rel="stylesheet", href="/stylesheets/style.css")
 	script(src='http://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
-	script(src="/socket.io/socket.io.js")
 	title= title
 body
 	header
 		include ../partials/header
-	main
+	article(id='main')
 		if showChat
 			include ../partials/chat
 		else
 			include ../partials/hellopage
 	
 	script(scr='jquery.js')
-	//- script(scr='socket.io.js')
+	script(src='/socket.io/socket.io.js')
 	script(src='main.js')
