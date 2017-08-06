@@ -11,7 +11,7 @@ var express = require('express'),
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
 }); */
-
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/socket.io.js', (req,res)=>{
@@ -79,3 +79,6 @@ io.on('connection', (socket)=>{
 
 })
 
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
