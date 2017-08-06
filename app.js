@@ -1,9 +1,9 @@
 var express = require('express'),
 	app = express(),
 	logger = require('log4js').getLogger();
-	/* server = require('https').Server(app),
-	io = require('socket.io')(server), */
-	app.use(function(req, res, next) {
+	server = require('http').Server(app),
+	io = require('socket.io')(server),
+/* 	app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.header("Access-Control-Allow-Headers", "Content-Type");
@@ -13,16 +13,16 @@ var express = require('express'),
 	var https = require('https'),
 	socketio = require('socket.io'),
 	server = https.createServer(app),
-	io = socketio.listen(server, {log:false, origins:'*:*'}),
+	io = socketio.listen(server, {log:false, origins:'*:*'}), */
 	pug = require('pug'),
 	port = 4000;
 
-/* server.listen(port, '127.0.0.1', ()=>{
+server.listen(port, '127.0.0.1', ()=>{
 	var addr = server.address();
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
-}); */
-app.set('port', (process.env.PORT || 5000));
+});
+//app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 
