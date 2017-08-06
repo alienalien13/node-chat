@@ -8,12 +8,12 @@
     "start": "node app.js"
   },
   "devDependencies": {
-    "log4js": "^2.3.3",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
     "express": "^4.15.3",
     "jquery": "^3.2.1",
+    "log4js": "^2.3.3",
     "pug": "^2.0.0-rc.3",
     "socket.io": "^2.0.3"
   }
