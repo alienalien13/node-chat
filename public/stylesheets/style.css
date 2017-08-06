@@ -1,6 +1,6 @@
 body{margin: 0;padding: 0;height: 100%;}
 .no-content{display: none;}
-
+textarea{resize: none;}
 /* HEADER */
 header{
 	background-color: #845ac7;
@@ -12,10 +12,18 @@ header{
 }
 
 /* CONTENT */
-#main, .chat, .chat-wrapp, .hellopage{
+.m-window{
+	background-color: #e7def3
+}
+#main, .chat, .chat-wrapp, .hellopage, .chat-window, .m-window{
 	height: 100%;
 }
-.m-window{
-	height: 100%;
-	background-color: #ece6f7;
+.messages-box, .clients-list, .new-message{
+	border: 1px solid #2c1a4a;
+}
+.messages-clients-list{
+	height: 65%;
+}
+.new-message{
+	height: 5%;
 }

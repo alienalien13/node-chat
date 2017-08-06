@@ -1,4 +1,9 @@
-article(class='container chat')
+article(class=showChat ? 'container chat' : 'no-content' id='chat')
 	section(class='row chat-wrapp')
-		div(class='col-xs-8 col-xs-offset-2 m-window') CHAT
-		div(class='' id='chat-box')
+		div(class='container chat-window')
+			div(class='row messages-clients-list')
+				div(class='col-xs-9 container messages-box')
+				div(class='col-xs-3 container clients-list')
+			div(class='row new-message')
+				textarea(autofocus class='col-xs-9')
+				input(type='button' class='col-xs-3' value='send')
