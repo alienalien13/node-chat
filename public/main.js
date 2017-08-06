@@ -1,4 +1,4 @@
-var socket = io.connect();
+var socket = require('socket.io-client').connect();
 console.log(socket);
 
 //new user login handler
