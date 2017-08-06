@@ -14,12 +14,12 @@ var express = require('express'),
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/socket.io.js', (req,res)=>{
+/* app.get('/socket.io.js', (req,res)=>{
     res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
 });
 app.get('/socket.io/socket.io.js', (req,res)=>{
     res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
-});
+}); */
 app.get('/jquery.js', (req,res)=>{
     res.sendFile(__dirname + '/node_modules/jquery/dist/jquery.min.js');
 });
