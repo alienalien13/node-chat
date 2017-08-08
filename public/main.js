@@ -6,9 +6,7 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 }); */
 var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-	transports: ['xhr-polling'],
-	'polling duration': 10,
-	upgrade: false
+	transports: ['xhr-polling']
 });
 /* var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//path: '/socket.io-client',
@@ -28,12 +26,7 @@ console.log(socket);
 
 //new user login handler
 $('#joinChat').on('click', ()=>{
-	 io = require('socket.io-client');
-	 socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-		transports: ['xhr-polling'],
-		'polling duration': 10,
-		upgrade: false
-	});
+
 	var userName = $('#nameInp').val()
 
 	if (userName.length > 0 && userName.indexOf(' ') == -1){
