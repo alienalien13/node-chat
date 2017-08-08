@@ -15,14 +15,14 @@ var express = require('express'),
 	server = https.createServer(app),
 	io = socketio.listen(server, {log:false, origins:'*:*'}), */
 	pug = require('pug'),
-	port = 4000;
+	port = 5000;
 
-/* server.listen(port, '127.0.0.1', ()=>{
+server.listen(port, ()=>{
 	var addr = server.address();
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
-}); */
-app.set('port', (process.env.PORT || 5000));
+});
+app.set('port', (process.env.PORT || port));
 app.use(express.static(__dirname + '/public'));
 
 
@@ -105,6 +105,6 @@ io.on('connection', (socket)=>{
 
 })
 
-app.listen(app.get('port'), function() {
+app.listen(port, function() {
   console.log('Node app is running on port', app.get('port'));
 });
