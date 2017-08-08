@@ -4,7 +4,8 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000', {
 	transports: ['websocket'],
 	upgrade: false
 });
-this.io = socket.connect('/socket.io/', {
+this.io = socket.connect('https://intense-inlet-33140.herokuapp.com:5000', {
+	path: '/socket.io/',
   transports: ['websocket'],
   upgrade: false
 });
