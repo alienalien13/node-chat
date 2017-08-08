@@ -1,5 +1,7 @@
 var io = require('socket.io-client');
-var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/');
+var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
+	transports: ['websocket']
+});
 
 /* var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//path: '/socket.io-client',
@@ -12,6 +14,9 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/');
 	upgrade: false
 }); */
 
+socket.on('reconnect_attempt', () => {
+  socket.io.opts.transports = ['polling', 'websocket'];
+});
 console.log(socket);
 
 //new user login handler
