@@ -6416,7 +6416,7 @@ module.exports = yeast;
 },{}],45:[function(require,module,exports){
 var io = require('socket.io-client');
 var socket = io.connect();
-this.io = socket.connect('https://cryptic-fjord-64553.herokuapp.com/', {
+this.io = socket.connect('/socket.io-client', {
   transports: ['websocket'],
   upgrade: false,
 });
