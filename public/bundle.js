@@ -6416,9 +6416,9 @@ module.exports = yeast;
 },{}],45:[function(require,module,exports){
 var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com/', {
-	'path': '/socket.io/'
+	'path': '/socket.io/socket.io/'
 });
-this.io = socket.connect('/socket.io/', {
+this.io = socket.connect('/socket.io/socket.io/', {
   transports: ['websocket'],
   upgrade: false,
 });
