@@ -27,6 +27,7 @@ console.log(socket);
 //new user login handler
 $('#joinChat').on('click', ()=>{
 
+	
 	var userName = $('#nameInp').val()
 
 	if (userName.length > 0 && userName.indexOf(' ') == -1){
