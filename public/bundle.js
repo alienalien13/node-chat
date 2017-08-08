@@ -13756,7 +13756,7 @@ var https = require('https');
 console.log(https);
 //https.globalAgent.options.rejectUnauthorized = false; 
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-	agent: https.globalAgent,
+	//agent: https.globalAgent,
 	secure: true,
 	rejectUnauthorized: false,
 	transports: ['websocket']
