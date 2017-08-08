@@ -6416,7 +6416,7 @@ module.exports = yeast;
 },{}],45:[function(require,module,exports){
 var io = require('socket.io-client');
 var socket = io.connect();
-this.io = socket.connect('/socket.io/socket.io-client', {
+this.io = socket.connect('/socket.io', {
   transports: ['websocket'],
   upgrade: false,
 });
