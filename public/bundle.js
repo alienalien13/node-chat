@@ -6415,9 +6415,7 @@ module.exports = yeast;
 
 },{}],45:[function(require,module,exports){
 var io = require('socket.io-client');
-var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-	path: '/socket.io-client'
-});
+var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/');
 
 /* var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//path: '/socket.io-client',
@@ -6431,7 +6429,6 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 }); */
 
 console.log(socket);
-console.log(this.socket);
 
 //new user login handler
 $('#joinChat').on('click', ()=>{
