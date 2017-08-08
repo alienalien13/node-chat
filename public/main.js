@@ -1,6 +1,6 @@
 var io = require('socket.io-client');
 var socket = io.connect();
-this.io = socket.connect('https://intense-inlet-33140.herokuapp.com/socket.io/socket.io-client', {
+this.io = socket.connect('https://intense-inlet-33140.herokuapp.com/:443', {
   transports: ['websocket'],
   upgrade: false,
 });
