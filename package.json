@@ -8,7 +8,8 @@
     "start": "node app.js",
     "br": "browserify public/main.js -o public/bundle.js",
     "deploy": "rimraf public/bundle.js && browserify public/main.js -o public/bundle.js && git commit -a -m 'new' && git push heroku master && heroku ps:scale web=1 && heroku features:enable http-session-affinity",
-    "da": "rimraf public/bundle.js && browserify public/main.js -o public/bundle.js && git commit -a -m 'new' && git push heroku master && heroku ps:scale web=1"
+    "da": "rimraf public/bundle.js && browserify public/main.js -o public/bundle.js && git commit -a -m 'new' && git push heroku master && heroku ps:scale web=1",
+    "a": "rimraf public/bundle.js && browserify public/main.js -o public/bundle.js && git commit -a -m 'new' && git push heroku master"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
