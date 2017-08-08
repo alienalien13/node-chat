@@ -67,7 +67,7 @@ io.on('connection', (socket)=>{
 		io.set("polling duration", 10);
 	}); */
 	io.configure(function () {
-		io.set("transports", ["polling"]);
+		io.set("transports", ['websocket', 'polling']);
 	});
 
 	socket.on('newUserJoin', (userName)=>{
