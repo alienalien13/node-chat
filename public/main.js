@@ -1,6 +1,6 @@
 var io = require('socket.io-client');
 var socket = io.connect();
-this.io = socket.connect('/socket.io', {
+this.io = socket.connect('/', {
   transports: ['websocket'],
   upgrade: false,
 });
