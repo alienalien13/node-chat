@@ -11,8 +11,8 @@ console.log(https.Agent);
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//agent: https.globalAgent,
 	secure: true,
-	rejectUnauthorized: false,
-	transports: ['websocket']
+	rejectUnauthorized: false
+//	transports: ['websocket']
 });
 /* var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//path: '/socket.io-client',
