@@ -1,5 +1,7 @@
 var io = require('socket.io-client');
-var socket = io.connect();
+var socket = io.connect('https://intense-inlet-33140.herokuapp.com/', {
+	'path': '/socket.io/'
+});
 this.io = socket.connect('/socket.io/', {
   transports: ['websocket'],
   upgrade: false,
