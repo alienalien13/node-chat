@@ -6416,7 +6416,7 @@ module.exports = yeast;
 },{}],45:[function(require,module,exports){
 var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-	transports: ['websocket'],
+	transports: ['xhr-polling'],
 	upgrade: false
 });
 
@@ -6431,9 +6431,9 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	upgrade: false
 }); */
 
-socket.on('reconnect_attempt', () => {
+/* socket.on('reconnect_attempt', () => {
 	socket.io.opts.transports = ['polling', 'websocket'];
-});
+}); */
 console.log(socket);
 
 //new user login handler
