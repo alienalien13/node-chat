@@ -6422,7 +6422,7 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 }); */
 var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
-	transports: ['websocket']
+	transports: ['polling']
 });
 /* var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	//path: '/socket.io-client',
