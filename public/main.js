@@ -1,6 +1,7 @@
 var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	transports: ['xhr-polling'],
+	'polling duration': 10,
 	upgrade: false
 });
 
