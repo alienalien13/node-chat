@@ -5,16 +5,19 @@
   "license": "MIT",
   "scripts": {
     "serv": "node app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "br": "browserify public/main.js -o public/bundle.js"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "browserify": "^14.4.0",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
     "log4js": "^2.3.3",
     "pug": "^2.0.0-rc.3",
+    "requirejs": "^2.3.4",
     "socket.io": "^2.0.3"
   }
 }

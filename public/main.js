@@ -1,4 +1,9 @@
-var socket = io();
+var io = require('socket.io-client');
+var socket = io.connect();
+this.io = socket.connect('https://cryptic-fjord-64553.herokuapp.com/', {
+  transports: ['websocket'],
+  upgrade: false,
+});
 console.log(socket);
 
 //new user login handler
