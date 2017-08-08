@@ -4,6 +4,7 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	'polling duration': 10,
 	upgrade: false
 }); */
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 var io = require('socket.io-client');
 //https.globalAgent.options.rejectUnauthorized = false; 
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {

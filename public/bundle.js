@@ -6414,12 +6414,14 @@ yeast.decode = decode;
 module.exports = yeast;
 
 },{}],45:[function(require,module,exports){
+(function (process){
 /* var io = require('socket.io-client');
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 	transports: ['xhr-polling'],
 	'polling duration': 10,
 	upgrade: false
 }); */
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 var io = require('socket.io-client');
 //https.globalAgent.options.rejectUnauthorized = false; 
 var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
@@ -6480,4 +6482,5 @@ socket.on('shareMessage', (message)=>{
 	$('.messages-box').append('<div class="row"><div class="col-xs-4 single-message new-user-notice">' + message)
 })
 
-},{"socket.io-client":34}]},{},[45]);
+}).call(this,require('_process'))
+},{"_process":33,"socket.io-client":34}]},{},[45]);
