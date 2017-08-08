@@ -20,7 +20,7 @@ var socket;
 /* socket.on('reconnect_attempt', () => {
 	socket.io.opts.transports = ['polling', 'websocket'];
 }); */
-console.log(socket);
+//console.log(socket);
 
 //new user login handler
 $('#joinChat').on('click', ()=>{
@@ -33,7 +33,7 @@ $('#joinChat').on('click', ()=>{
 		transports: ['xhr-polling'],
 		upgrade: false
 	});
-
+	console.log(socket);
 	if (userName.length > 0 && userName.indexOf(' ') == -1){
 		socket.emit('newUserJoin', userName)
 		$('#chat').attr('class', 'container chat');
