@@ -6421,7 +6421,7 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000', {
 	upgrade: false
 });
 this.io = socket.connect('https://intense-inlet-33140.herokuapp.com:5000', {
-	path: '/socket.io/',
+	'path': '/socket.io/',
   transports: ['websocket'],
   upgrade: false
 });
