@@ -61,9 +61,13 @@ app.get('/', (req,res)=>{
 });*/
 
 io.on('connection', (socket)=>{
-	io.configure(function () {
+	
+/* 	io.configure(function () {
 		io.set("transports", ["xhr-polling"]);
 		io.set("polling duration", 10);
+	}); */
+	io.configure(function () {
+		io.set("transports", ["websocket"]);
 	});
 
 	socket.on('newUserJoin', (userName)=>{
