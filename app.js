@@ -24,7 +24,7 @@ var express = require('express'),
 }); */
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 app.get('/socket.io.js', (req,res)=>{
     res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
