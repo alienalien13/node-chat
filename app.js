@@ -59,12 +59,12 @@ app.get('/', (req,res)=>{
 		showChat: true
 	});
 });*/
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
-});
 
 io.on('connection', (socket)=>{
+	io.configure(function () {
+		io.set("transports", ["xhr-polling"]);
+		io.set("polling duration", 10);
+	});
 
 	socket.on('newUserJoin', (userName)=>{
 	
