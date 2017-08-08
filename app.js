@@ -2,7 +2,7 @@ var express = require('express'),
 	app = express(),
 	logger = require('log4js').getLogger();
 	server = require('http').Server(app),
-	io = require('socket.io')(server),
+	io = require('socket.io-client')(server),
 /* 	app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
