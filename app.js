@@ -1,7 +1,7 @@
 var express = require('express'),
 	app = express(),
 	logger = require('log4js').getLogger();
-	server = require('http').Server(app),
+	server = require('https').Server(app),
 	io = require('socket.io')(server),
 /* 	app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
