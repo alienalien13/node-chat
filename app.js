@@ -22,7 +22,7 @@ var express = require('express'),
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
 }); */
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 443));
 app.use(express.static(__dirname + '/public'));
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
