@@ -2,7 +2,7 @@ var express = require('express'),
 	app = express(),
 	fs = require('fs'),
 	logger = require('log4js').getLogger(),
-	server = require('https').Server({
+	server = require('https').createServer({
 		key: fs.readFileSync('./test_key.key'),
 		cert: fs.readFileSync('./test_cert.crt'),
 		ca: fs.readFileSync('./test_ca.crt'),
