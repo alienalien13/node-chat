@@ -3,7 +3,11 @@ var express = require('express'),
 	fs = require('fs'),
 	logger = require('log4js').getLogger(),
 	https = require('https'),
-	server = https.createServer(app);
+	/* server = https.createServer({ 
+                key: fs.readFileSync('privkey.pem'),
+                cert: fs.readFileSync('fullchain.pem') 
+			 },app); */
+	server = https.Server(app);
 	io = require('socket.io')(server),
 /* 	app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
