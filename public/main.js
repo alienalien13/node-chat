@@ -7,7 +7,7 @@ var socket = io.connect('https://intense-inlet-33140.herokuapp.com:5000/', {
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 var io = require('socket.io-client');
 //https.globalAgent.options.rejectUnauthorized = false; 
-var socket = io.connect('wss://intense-inlet-33140.herokuapp.com/', {
+var socket = io.connect('wss://intense-inlet-33140.herokuapp.com:80/', {
 	//agent: https.globalAgent,
 	secure: true,
 	rejectUnauthorized: false,
