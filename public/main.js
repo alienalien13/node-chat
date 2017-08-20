@@ -2,9 +2,10 @@ var socket = io(),
 	userLogin;
 console.log(socket);
 
+//animation cosmo + resizing hellopage blur window
 $(() => {
 	cosmoRotate('In');
-	rePos()
+	rePos();
 });
 window.onresize = rePos;
 
