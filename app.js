@@ -3,17 +3,6 @@ var express = require('express'),
 	logger = require('log4js').getLogger();
 	server = require('http').Server(app),
 	io = require('socket.io')(server),
-/* 	app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        res.header("Access-Control-Allow-Headers", "Content-Type");
-        res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
-        next();
-    });
-	var https = require('https'),
-	socketio = require('socket.io'),
-	server = https.createServer(app),
-	io = socketio.listen(server, {log:false, origins:'*:*'}), */
 	pug = require('pug'),
 	port = 4000;
 
@@ -22,7 +11,7 @@ server.listen(port, '127.0.0.1', ()=>{
 	logger.level = 'debug';
     logger.debug('listening on ' + addr.address + ':' + addr.port);
 });
-//app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static(__dirname + '/public'));
 
 
@@ -60,9 +49,9 @@ app.get('/', (req,res)=>{
 	});
 });*/
 
-io.on('connection', (socket)=>{
+io.on('connection', socket => {
 
-	socket.on('newUserJoin', (userName)=>{
+	socket.on('newUserJoin', userName => {
 	
 		//if(userName !== undefined && userName !== ''){
 
@@ -91,8 +80,14 @@ io.on('connection', (socket)=>{
 	})
 
 	//get a new message and share it to all users
-	socket.on('newMessage', (message)=>{
-		socket.broadcast.emit('shareMessage', message)
+	socket.on('newMessage', message => {
+		socket.broadcast.emit('shareMessage', {message: message, userName: socket.session.userName})
+	})
+
+	socket.on('disconnect', () => {
+		if(socket.session){
+			io.sockets.emit('userDisconnected', socket.session);
+		}
 	})
 
 })
