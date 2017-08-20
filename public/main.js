@@ -2,7 +2,11 @@ var socket = io(),
 	userLogin;
 console.log(socket);
 
-$( cosmoRotate('In') );
+$(() => {
+	cosmoRotate('In');
+	rePos()
+});
+window.onresize = rePos;
 
 //new user login handler
 $('#joinChat').on('click', () => {
@@ -18,6 +22,10 @@ $('#joinChat').on('click', () => {
 	
 })
 
+function rePos(){
+	var pos = document.getElementsByClassName('m-window')[0].getBoundingClientRect();
+	$('.blurback').offset({top: pos.top - 10, left: pos.left});
+}
 function singleMessage(insertData, addedClass1, author, addedClass2){
 
 	if (insertData){

@@ -30,6 +30,9 @@ header{
 .fa-grav{
 	margin: 15px;
 }
+.fa{
+	color: var(--title-text-color);
+}
 .fa-grav:hover{
 	cursor: pointer;
 }
@@ -127,7 +130,7 @@ SINGLE MESSAGES STYLING
 .client-disconnect{
 	background: var(--error-color);
 }
-.new-user-notice{
+.new-user-notice, .welcome-message{
 	background: var(--color-good);
 }
 /*

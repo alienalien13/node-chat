@@ -1,0 +1,33 @@
+.m-window{
+	position: absolute;
+	left: calc(50% - 200px);
+	top: calc(50% - 100px);
+	margin-top: 10px;
+	height: 200px;
+	width: 400px;
+	z-index: 2;
+	border-radius: 10px;
+	padding: 0 !important;
+}
+.m-window p{
+	color: var(--title-text-color);
+	font-weight: 600;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px #fff;
+}
+.blurback{
+	border-radius: 10px;
+	position: absolute;
+ 	filter: blur(1.5px);
+	height: 200px;
+	width: 400px;
+	z-index: 1;
+	opacity: .8;
+	background-color: var(--main-color);
+}
+.fa-sign-in{
+	margin-top: 1.5rem;
+}
+.fa-sign-in:hover{
+	cursor: pointer;
+}
