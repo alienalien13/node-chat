@@ -36,7 +36,6 @@ const amazingStuff = 'Its amazing stuff, ',
 app.get('/', (req,res)=>{
     res.render('pages/index', {
 		title: 'main page',
-		message: date,
 		showChat: false
 	});
 });
